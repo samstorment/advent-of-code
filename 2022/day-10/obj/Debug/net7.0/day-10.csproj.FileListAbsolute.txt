@@ -1,0 +1,15 @@
+C:\Users\sam\dev\advent-of-code\2022\day-10\bin\Debug\net7.0\day-10.exe
+C:\Users\sam\dev\advent-of-code\2022\day-10\bin\Debug\net7.0\day-10.deps.json
+C:\Users\sam\dev\advent-of-code\2022\day-10\bin\Debug\net7.0\day-10.runtimeconfig.json
+C:\Users\sam\dev\advent-of-code\2022\day-10\bin\Debug\net7.0\day-10.dll
+C:\Users\sam\dev\advent-of-code\2022\day-10\bin\Debug\net7.0\day-10.pdb
+C:\Users\sam\dev\advent-of-code\2022\day-10\obj\Debug\net7.0\day-10.csproj.AssemblyReference.cache
+C:\Users\sam\dev\advent-of-code\2022\day-10\obj\Debug\net7.0\day-10.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sam\dev\advent-of-code\2022\day-10\obj\Debug\net7.0\day-10.AssemblyInfoInputs.cache
+C:\Users\sam\dev\advent-of-code\2022\day-10\obj\Debug\net7.0\day-10.AssemblyInfo.cs
+C:\Users\sam\dev\advent-of-code\2022\day-10\obj\Debug\net7.0\day-10.csproj.CoreCompileInputs.cache
+C:\Users\sam\dev\advent-of-code\2022\day-10\obj\Debug\net7.0\day-10.dll
+C:\Users\sam\dev\advent-of-code\2022\day-10\obj\Debug\net7.0\refint\day-10.dll
+C:\Users\sam\dev\advent-of-code\2022\day-10\obj\Debug\net7.0\day-10.pdb
+C:\Users\sam\dev\advent-of-code\2022\day-10\obj\Debug\net7.0\day-10.genruntimeconfig.cache
+C:\Users\sam\dev\advent-of-code\2022\day-10\obj\Debug\net7.0\ref\day-10.dll
