@@ -23,11 +23,11 @@ function getExposedFaces(cubes: Cube[]) {
 
         cubes.forEach(({x, y, z}, i) => {
             if (i === index) return;
-            const dx = Math.abs(x - cube.x);
-            const dy = Math.abs(y - cube.y);
-            const dz = Math.abs(z - cube.z);
+            const dx = x - cube.x;
+            const dy = y - cube.y;
+            const dz = z - cube.z;
 
-            if (dx + dy + dz === 1) exposedFaces--;
+            if (Math.abs(dx) + Math.abs(dy) + Math.abs(dz) === 1) exposedFaces--;
         });
 
         return exposedFaces;
@@ -35,7 +35,7 @@ function getExposedFaces(cubes: Cube[]) {
 }
 
 function findAirPockets(cubes: Cube[]) {
-
+    
 }
 
 const cubes = getCubes();
