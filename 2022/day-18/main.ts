@@ -17,6 +17,17 @@ function getCubes() {
     return cubes;
 }
 
+function stringify(cube: Cube) {
+    return `${cube.x},${cube.y},${cube.z}`;
+}
+
+const top   = (c: Cube) => ({ ...c, z: c.z + 1});
+const bot   = (c: Cube) => ({ ...c, z: c.z - 1});
+const right = (c: Cube) => ({ ...c, x: c.x + 1});
+const left  = (c: Cube) => ({ ...c, x: c.x - 1});
+const front = (c: Cube) => ({ ...c, y: c.y - 1});
+const back  = (c: Cube) => ({ ...c, y: c.y + 1});
+
 function getExposedFaces(cubes: Cube[]) {
     return cubes.map((cube, index) => {
         let exposedFaces = 6;
@@ -34,13 +45,51 @@ function getExposedFaces(cubes: Cube[]) {
     });
 }
 
-function findAirPockets(cubes: Cube[]) {
-    
+function findAirPockets(cubes: Cube[], exposedFaces: number[]): Cube[] {
+    const pockets = new Set<string>();
+    const occupied = new Set<string>(cubes.map(c => stringify(c)));
+
+    // console.log(cubes);
+
+    let index = 0;
+    for (const cube of cubes) {
+        if (exposedFaces[index++] === 0) continue;
+
+        const targets = [ top, bot, left, right, front, back ];
+
+        for (const fn of targets) {
+            const target = fn(cube);
+            if (pockets.has(stringify(target)) || occupied.has(stringify(target))) continue;
+
+            let surrounding = 0;
+
+            for (const fn of targets) {
+                const neighbor = fn(target);
+                if (!occupied.has(stringify(neighbor))) break;
+                surrounding++;
+            }
+            
+            
+            if (surrounding === 6) {
+                pockets.add(stringify(target));
+            }
+        }
+    }
+
+    return [ ...pockets.keys() ].map(pointString => {
+        const [ x, y, z ] = pointString.split(',').map(n => parseInt(n));
+        return { x, y, z };
+    });
 }
 
 const cubes = getCubes();
-const exposedFaces = getExposedFaces(cubes);
+const totalExposedFaces = getExposedFaces(cubes);
+const pockets = findAirPockets(cubes, totalExposedFaces);
 
-// console.log(exposedFaces);
+console.log(pockets.length);
 
-console.log("Puzzle 1", sum(exposedFaces));
+const exteriorExposedFaces = getExposedFaces([ ...cubes, ...pockets ]);
+
+console.log("Puzzle 1", sum(totalExposedFaces));
+// 4010 is too high
+console.log("Puzzle 2", sum(exteriorExposedFaces));
